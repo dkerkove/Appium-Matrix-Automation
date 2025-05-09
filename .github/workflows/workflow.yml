@@ -23,13 +23,13 @@ jobs:
       # install webdriver app
       # install cafe app
 
-      # confirm port fowarding
-      #   8100
-      #   expose
 
 
-      # python3 -m pip install -U pymobiledevice3 && brew install libusb
-      # pymobiledevice3 mounter auto-mount
+      # - name: install python tools
+      #   run: |
+      #     pip install -U pymobiledevice3 && brew install libusb
+      #     pymobiledevice3 mounter auto-mount
+        
 
 
       # check status
