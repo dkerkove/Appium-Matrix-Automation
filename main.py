@@ -100,12 +100,11 @@ def uploadFile(fileName):
         'Authorization': f"Bearer {API_KEY}"
     }
 
-    filePath = f"/tmp/{fileName}"   
+    filePath = f"tmp/{fileName}"   
     
     with open(fileName, 'rb') as f:
         data = f.read()
 
-    print(data)
     
     r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device/{filePath}", headers=headers, data=data)
     if r.status_code == 200:
