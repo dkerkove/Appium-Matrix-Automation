@@ -98,7 +98,8 @@ def setPortForwarding():
 
 def uploadFile(fileName):
     headers = {
-        'Authorization': f"Bearer {API_KEY}"
+        'Authorization': f"Bearer {API_KEY}",
+        "Content-Type": 'application/octet-stream'
     }
 
     filePath = f"/tmp/{fileName}"   
