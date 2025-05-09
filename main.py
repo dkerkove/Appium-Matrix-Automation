@@ -119,7 +119,7 @@ def uploadFile(fileName):
 def installApp(fileName):
     headers = {
         'Authorization': f"Bearer {API_KEY}",
-        'Content-Type': 'application/octet-stream'
+        'Content-Type': 'application/json'
     }
     path = uploadFile(fileName)
     time.sleep(10)
