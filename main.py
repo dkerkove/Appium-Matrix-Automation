@@ -93,3 +93,34 @@ def setPortForwarding():
     if r.status_code == 200:
         data = r.json()
         print(data)
+
+
+def uploadFile(fileName):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+
+    filepath = "/tmp/"
+    
+    with open({fileName}, 'rb') as f:
+        data = f.read()
+    
+    r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device/{filePath}", headers=headers, data=data)
+    if r.status_code == 200:
+        data = r.json()
+        print(data)        
+
+
+def installApp(APP_NAME):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}",
+        'Content-Type': 'application/octet-stream'
+    }
+    data = {
+        "path": f"/tmp/{APP_NAME}"
+    }
+    r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
+    if r.status_code == 200:
+        data = r.json()
+        print(data)    
+    
