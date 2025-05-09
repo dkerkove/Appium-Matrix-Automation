@@ -118,6 +118,7 @@ def installApp(fileName):
         'Content-Type': 'application/octet-stream'
     }
     path = uploadFile(fileName)
+    time.sleep(3)
     print("ia", path)
     data = {
         "path": path
