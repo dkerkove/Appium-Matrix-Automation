@@ -61,18 +61,18 @@ jobs:
 
 
       - name: Download Cafe ipa
-        run: curl -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
+        run: curl -L -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
 
-      - name: Upload Corellium Cafe as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Corellium_Cafe.ipa
-          path: Corellium_Cafe.ipa
+      # - name: Upload Corellium Cafe as Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Corellium_Cafe.ipa
+      #     path: Corellium_Cafe.ipa
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: Corellium_Cafe.ipa
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: Corellium_Cafe.ipa
 
 
       - name: Install app on VM
