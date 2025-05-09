@@ -54,7 +54,7 @@ def startApp(BUNDLE_ID):
         print(f"{BUNDLE_ID} started ...")
 
 
-def getDevice(INSTANCE_ID):
+def getDevice():
     headers = {
         'Authorization': f"Bearer {API_KEY}"
     }
