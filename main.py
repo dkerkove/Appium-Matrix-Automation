@@ -66,6 +66,17 @@ def getDevice():
         print(data)
     
 
+def update():
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+    data = {}
+    r = requests.post(f"{HOST_NAME}/api/v1/update", headers=headers, data=data)
+    if r.status_code == 200:
+        data = r.json()
+        print(data)    
+
+
 def setPortForwarding():
     headers = {
         'Authorization': f"Bearer {API_KEY}"
@@ -81,4 +92,5 @@ def setPortForwarding():
     if r.status_code == 200:
         data = r.json()
         print(data)
+        update()
         getDevice()
