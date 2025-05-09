@@ -130,7 +130,7 @@ def installApp(fileName):
         print(f"installing {path} ...") 
 
 
-def runApp(appName)
+def runApp(appName):
     headers = {
         'Authorization': f"Bearer {API_KEY}"
     }
