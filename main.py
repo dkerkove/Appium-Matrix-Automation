@@ -110,9 +110,7 @@ def uploadFile(fileName):
     
     r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data=data)
     if r.status_code == 204:
-        resp = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data={'mode':777})
-        print("patch", resp)
-        print(resp.status_code)
+        # resp = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data={'mode':777})
         return filePath       
 
 
@@ -122,15 +120,11 @@ def installApp(fileName):
         'Content-Type': 'application/json'
     }
     path = uploadFile(fileName)
-    time.sleep(10)
-    print("ia", path)
+    # time.sleep(10)
     data = {
         "path": path
     }
-    print(data)
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
-    print(r.status_code)
-    print(r)
     if r.status_code == 204:
         print(r) 
     
