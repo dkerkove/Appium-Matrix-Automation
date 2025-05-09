@@ -119,7 +119,7 @@ def installApp(fileName):
     }
     path = uploadFile(fileName)
     data = {
-        "path": path"
+        "path": path
     }
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
     if r.status_code == 200:
