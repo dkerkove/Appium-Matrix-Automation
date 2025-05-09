@@ -78,7 +78,7 @@ jobs:
       - name: Install app on VM
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import uploadFile; uploadFile(Corellium_Cafe.ipa)'
+        run: python -c 'from main import uploadFile; uploadFile("Corellium_Cafe.ipa")'
 
 
 
