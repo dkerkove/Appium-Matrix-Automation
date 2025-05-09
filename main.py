@@ -100,7 +100,7 @@ def uploadFile(fileName):
         'Authorization': f"Bearer {API_KEY}"
     }
 
-    filePath = "/tmp/"   
+    filePath = f"/tmp/{fileName}"   
     
     with open(fileName, 'rb') as f:
         data = f.read()
