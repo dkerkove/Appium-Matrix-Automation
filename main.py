@@ -124,7 +124,6 @@ def installApp(fileName):
     }
     print(data)
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
-    if r.status_code == 200:
-        data = r.json()
-        print(data)    
+    if r.status_code == 204:
+        print(r) 
     
