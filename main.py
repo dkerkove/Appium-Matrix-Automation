@@ -1,5 +1,7 @@
 import os
 import requests
+import json
+
 
 try:
     API_KEY = os.environ["API_KEY"]
@@ -75,7 +77,7 @@ def setPortForwarding():
             {"devicePort":8100,"routerPort":8100,"expose":true,"firstAvailable":false}
         ]
     }
-    r = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers, data=data)
+    r = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers, data=json.dumps(data))
     if r.status_code == 200:
         data = r.json()
         print(data)
