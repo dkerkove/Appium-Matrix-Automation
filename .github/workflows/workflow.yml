@@ -63,22 +63,22 @@ jobs:
       - name: Download Cafe ipa
         run: curl -L -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
 
-      # - name: Upload Corellium Cafe as Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: Corellium_Cafe.ipa
-      #     path: Corellium_Cafe.ipa
 
-      # - name: Download Artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: Corellium_Cafe.ipa
-
-
-      - name: Install app on VM
+      - name: Install Cafe app on VM
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
         run: python -c 'from main import installApp; installApp("Corellium_Cafe.ipa")'
+
+
+      - name: Download Webdriver ipa
+        run: curl -L -o WebDriverAgentRunner-Runner.ipa https://www.corellium.com/hubfs/Blog%20Attachments/WebDriverAgentRunner-Runner.ipa
+
+      - name: Install Webdriver app on VM
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import installApp; installApp("WebDriverAgentRunner-Runner.ipa")'
+
+        
 
 
 
