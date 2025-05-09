@@ -54,5 +54,12 @@ def startApp(BUNDLE_ID):
         print(f"{BUNDLE_ID} started ...")
 
 
-
+def getDevice(INSTANCE_ID):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+    r = requests.get(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers)
+    if r.status_code == 200:
+        data = r.json()
+        print(data)
     
