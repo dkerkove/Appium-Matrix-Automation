@@ -110,7 +110,7 @@ def uploadFile(fileName):
     
     r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data=data)
     if r.status_code == 204:
-        resp = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data={'mode':511})
+        resp = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data={'mode':777})
         print("patch", resp)
         print(resp.status_code)
         return filePath       
