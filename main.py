@@ -102,7 +102,7 @@ def uploadFile(fileName):
 
     filepath = "/tmp/"   
     
-    with open({fileName}, 'rb') as f:
+    with open(fileName, 'rb') as f:
         data = f.read()
 
     print(data)
