@@ -78,6 +78,12 @@ jobs:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
         run: python -c 'from main import installApp; installApp("WebDriverAgentRunner-Runner.ipa")'
 
+
+      - name: Run Webdriver app on VM
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import runApp; runApp("com.corellium.Cafe")'
+
         
 
 
