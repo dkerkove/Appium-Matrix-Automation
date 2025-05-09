@@ -81,3 +81,4 @@ def setPortForwarding():
     if r.status_code == 200:
         data = r.json()
         print(data)
+        getDevice()
