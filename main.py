@@ -6,8 +6,8 @@ try:
 except KeyError:
     API_KEY = "Token not available!"
 
-HOST_NAME = "https://jedi.enterprise.corellium.com"
-INSTANCE_ID = ""
+HOST_NAME = "https://corelliumsales.enterprise.corellium.com"
+INSTANCE_ID = "49ddd57d-eb27-4af7-8f43-b2dbfef35b0f"
 
 
 
