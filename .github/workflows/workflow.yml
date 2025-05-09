@@ -60,10 +60,10 @@ jobs:
       #     pip install -U pymobiledevice3 && brew install libusb
 
 
-      - name: Download Cafe app
+      - name: Download Cafe ipa
         run: curl -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
 
-      - name: Corellium Cafe as Artifact
+      - name: Upload Corellium Cafe as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Corellium_Cafe
