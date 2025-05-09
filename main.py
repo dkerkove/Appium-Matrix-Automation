@@ -100,13 +100,13 @@ def uploadFile(fileName):
         'Authorization': f"Bearer {API_KEY}"
     }
 
-    filePath = f"tmp/{fileName}"   
+    filePath = f"/tmp/{fileName}"   
     
     with open(fileName, 'rb') as f:
         data = f.read()
 
     
-    r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device/{filePath}", headers=headers, data=data)
+    r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data=data)
     if r.status_code == 200:
         data = r.json()
         return filePath       
@@ -121,6 +121,7 @@ def installApp(fileName):
     data = {
         "path": path
     }
+    print(data)
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
     if r.status_code == 200:
         data = r.json()
