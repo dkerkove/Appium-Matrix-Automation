@@ -109,16 +109,17 @@ def uploadFile(fileName):
     r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device/{filePath}", headers=headers, data=data)
     if r.status_code == 200:
         data = r.json()
-        print(data)        
+        return filePath       
 
 
-def installApp(APP_NAME):
+def installApp(fileName):
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Content-Type': 'application/octet-stream'
     }
+    path = uploadFile(fileName)
     data = {
-        "path": f"/tmp/{APP_NAME}"
+        "path": path"
     }
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/app/install", headers=headers, json=data)
     if r.status_code == 200:
