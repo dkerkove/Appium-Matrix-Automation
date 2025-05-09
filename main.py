@@ -83,22 +83,13 @@ def setPortForwarding():
     }
     data = {"proxy":
         [
-            {"devicePort":22,"routerPort":22,"expose":"false","firstAvailable":"true","status":"started"},
-            {"devicePort":32,"routerPort":32,"expose":"true","firstAvailable":"true","status":"started"},
-            {"devicePort":8100,"routerPort":8100,"expose":"true","firstAvailable":"false"}
+            {"devicePort":22,"routerPort":22,"expose":False,"firstAvailable":True,"status":"started"},
+            {"devicePort":32,"routerPort":32,"expose":True,"firstAvailable":True,"status":"started"},
+            {"devicePort":8100,"routerPort":8100,"expose":True,"firstAvailable":False}
         ]
     }
 
-    data = 'services': 
-    {'vpn': 
-        {'proxy': 
-         [
-             {'devicePort': 22, 'routerPort': 22, 'status': 'started'},
-             {'devicePort': 32, 'routerPort': 32, 'status': 'started', 'exposedPort': 1886},
-             {'devicePort': 8100, 'routerPort': 8100, 'status': 'started', 'exposedPort': 1887}
-         ],
-         'listeners': []}}
-    r = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers, data=json.dumps(data))
+    r = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers, json=data)
     if r.status_code == 200:
         data = r.json()
         print(data)
