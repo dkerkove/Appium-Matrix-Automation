@@ -72,9 +72,9 @@ def setPortForwarding():
     }
     data = {"proxy":
         [
-            {"devicePort":22,"routerPort":22,"expose":false,"firstAvailable":true,"status":"started"},
-            {"devicePort":32,"routerPort":32,"expose":true,"firstAvailable":true,"status":"started"},
-            {"devicePort":8100,"routerPort":8100,"expose":true,"firstAvailable":false}
+            {"devicePort":22,"routerPort":22,"expose":"false","firstAvailable":"true","status":"started"},
+            {"devicePort":32,"routerPort":32,"expose":"true","firstAvailable":"true","status":"started"},
+            {"devicePort":8100,"routerPort":8100,"expose":"true","firstAvailable":"false"}
         ]
     }
     r = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}", headers=headers, data=json.dumps(data))
