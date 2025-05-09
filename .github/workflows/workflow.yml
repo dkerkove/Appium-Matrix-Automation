@@ -46,19 +46,41 @@ jobs:
       # start matrix monitor
       # wait
       # start appium python script
-      
 
-        
 
       - name: setup python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9' # install the python version needed
 
+
       - name: install python packages
         run: |
           pip install -r requirements.txt
       #     pip install -U pymobiledevice3 && brew install libusb
+
+
+      - name: Download Cafe app
+        run: curl -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
+
+      - name: Corellium Cafe as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Corellium_Cafe
+          path: Corellium_Cafe.ipa
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Corellium_Cafe
+
+
+      - name: Install app on VM
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import uploadFile; uploadFile(Corellium_Cafe.ipa)'
+
+
 
       # - name: mount device
       #   run: pymobiledevice3 mounter auto-mount
@@ -66,9 +88,9 @@ jobs:
       # - name: test connection
       #   run: curl http://10.11.1.4
 
-      - name: execute py script # run main.py
-        env:
-          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import setPortForwarding; setPortForwarding()'
+      # - name: execute py script # run main.py
+      #   env:
+      #     API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+      #   run: python -c 'from main import setPortForwarding; setPortForwarding()'
       
 
