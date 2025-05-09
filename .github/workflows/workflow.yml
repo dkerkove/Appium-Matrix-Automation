@@ -19,36 +19,33 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4
 
-      - name: check VM state 
+      # check state of phone
+      # install webdriver app
+      # install cafe app
+
+      # confirm port fowarding
+      #   8100
+      #   expose
 
 
-      check state of phone
-      install webdriver app
-      install cafe app
-
-      confirm port fowarding
-        8100
-        expose
+      # python3 -m pip install -U pymobiledevice3 && brew install libusb
+      # pymobiledevice3 mounter auto-mount
 
 
-      python3 -m pip install -U pymobiledevice3 && brew install libusb
-      pymobiledevice3 mounter auto-mount
-
-
-      check status
-        curl http://10.11.1.1:8100/status
+      # check status
+      #   curl http://10.11.1.1:8100/status
 
       
-      install appium
-        npm i -g appium
-        appium driver install xcuitest
-      start appium
-        appium
+      # install appium
+      #   npm i -g appium
+      #   appium driver install xcuitest
+      # start appium
+      #   appium
 
 
-      start matrix monitor
-      wait
-      start appium python script
+      # start matrix monitor
+      # wait
+      # start appium python script
       
 
         
