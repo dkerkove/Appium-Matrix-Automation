@@ -1,0 +1,67 @@
+# This is a basic workflow to help you get started with Actions
+
+name: MATRIX Automation
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: checkout repo content
+        uses: actions/checkout@v4
+
+      - name: check VM state 
+
+
+      check state of phone
+      install webdriver app
+      install cafe app
+
+      confirm port fowarding
+        8100
+        expose
+
+
+      python3 -m pip install -U pymobiledevice3 && brew install libusb
+      pymobiledevice3 mounter auto-mount
+
+
+      check status
+        curl http://10.11.1.1:8100/status
+
+      
+      install appium
+        npm i -g appium
+        appium driver install xcuitest
+      start appium
+        appium
+
+
+      start matrix monitor
+      wait
+      start appium python script
+      
+
+        
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # install the python version needed
+
+      - name: install python packages
+        run: pip install -r requirements.txt
+
+      - name: execute py script # run main.py
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python main.py
