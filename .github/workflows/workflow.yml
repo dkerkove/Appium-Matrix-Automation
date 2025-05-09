@@ -82,7 +82,7 @@ jobs:
       - name: Run Webdriver app on VM
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import runApp; runApp("com.corellium.Cafe")'
+        run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
 
         
 
