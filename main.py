@@ -141,23 +141,10 @@ def runApp(appName):
 
 def createWordList():
     headers = {
-        'Authorization': f"Bearer {API_KEY}"
+        'Authorization': f"Bearer {API_KEY}",
+        'Accept': 'application/json'
     }
     print(headers)
-    file = {
-        'type': (None, 'mast-wordlist'),
-        'encoding': (None, 'plain'),
-        'instance': (None, INSTANCE_ID),
-        'file': open('sensitive_values.txt', 'rb')
-    }
-    print(file)
-    print(headers)
-    r = requests.post(f"{HOST_NAME}/api/v1/images", headers=headers, files=file)
-    print("wordlis", r)
-    if r.status_code == 200:
-        print('wordlist created')
-        data = r.json()
-
 
 def createMatrixAssessment(bundle_id):
     wordlist_id = createWordList()
