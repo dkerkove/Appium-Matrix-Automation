@@ -154,6 +154,7 @@ def createWordList():
     
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/images", headers=headers, files = file)
     if r.status_code == 200:
+        print('wordlist created')
         data = r.json()
         return data['id']
 
@@ -170,7 +171,7 @@ def createMatrixAssessment(bundle_id):
         'bundleId': bundle_id,
         'wordlistId': wordlist_id
     }
-    
+    print(data)
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments", headers=headers, json = data)
     if r.status_code == 200:
         data = r.json()
