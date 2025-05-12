@@ -37,7 +37,7 @@ jobs:
 
 
       - name: run appium
-        run: appium
+        run: appium&
 
 
       - name: setup python
