@@ -143,6 +143,7 @@ def createWordList():
     headers = {
         'Authorization': f"Bearer {API_KEY}"
     }
+    print(headers)
     file = {
         'type': (None, 'mast-wordlist'),
         'encoding': (None, 'plain'),
