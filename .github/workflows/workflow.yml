@@ -88,7 +88,7 @@ jobs:
 
       - name: Create Matrix Assessment
         run: |
-          readonly assessment_id = $(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
+          readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
           echo "The result is: $assessment_id"
 
       # - name: mount device
