@@ -139,10 +139,9 @@ def runApp(appName):
         print(f"{appName} started ...")
 
 
-def createWordList(API_KEY):
-    headers = {
-        'Authorization': f"Bearer {API_KEY}",
-        'Accept': 'application/json'
+def createWordList():
+    eaders = {
+        'Authorization': f"Bearer {API_KEY}"
     }
     file = {
         'type': (None, 'mast-wordlist'),
@@ -160,7 +159,7 @@ def createWordList(API_KEY):
 
 
 def createMatrixAssessment(bundle_id):
-    wordlist_id = createWordList(API_KEY)
+    wordlist_id = createWordList()
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json',
