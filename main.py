@@ -160,7 +160,7 @@ def createWordList():
 
 
 def createMatrixAssessment(bundle_id):
-    createWordList()
+    wordlist_id = createWordList()
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json',
