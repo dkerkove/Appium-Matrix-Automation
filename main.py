@@ -139,7 +139,7 @@ def runApp(appName):
         print(f"{appName} started ...")
 
 
-def createWordList():
+def createWordList(API_KEY):
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json'
@@ -160,7 +160,7 @@ def createWordList():
 
 
 def createMatrixAssessment(bundle_id):
-    wordlist_id = createWordList()
+    wordlist_id = createWordList(API_KEY)
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json',
