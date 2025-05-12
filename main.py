@@ -148,7 +148,7 @@ def createWordList():
     file = {
         'type': (None, 'mast-wordlist'),
         'encoding': (None, 'plain'),
-        'instance': (None, {INSTANCE_ID}),
+        'instance': (None, INSTANCE_ID),
         'file': open('sensitive_values.txt', 'rb')
     }
     
