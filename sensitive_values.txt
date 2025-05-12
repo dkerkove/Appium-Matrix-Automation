@@ -1,0 +1,13 @@
+Myfirstname
+Mylastname
+Username123
+Password123
+2345678901234567
+90210
+3216540987
+432
+321-654-0987
+email1234@test.com
+regex(/^[a-zA-Z0-9._+-]+@corellium\.com$/)
+CorelliumizAwesome
+
