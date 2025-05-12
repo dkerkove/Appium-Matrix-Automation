@@ -151,8 +151,9 @@ def createWordList():
         'instance': (None, INSTANCE_ID),
         'file': open('sensitive_values.txt', 'rb')
     }
-    
-    r = requests.post(f"{HOST_NAME}/api/v1/images", headers=headers, files = file)
+    print(file)
+    print(headers)
+    r = requests.post(f"{HOST_NAME}/api/v1/images", headers=headers, files=file)
     print("wordlis", r)
     if r.status_code == 200:
         print('wordlist created')
