@@ -11,7 +11,7 @@ except KeyError:
     API_KEY = "Token not available!"
 
 HOST_NAME = "https://corelliumsales.enterprise.corellium.com"
-INSTANCE_ID = "e685090c-931a-4bf5-9195-a2164cf66818"
+INSTANCE_ID = "21da5a7a-490e-4651-af4d-21a7475661a4"
 
 
 
