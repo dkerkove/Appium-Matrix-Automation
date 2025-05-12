@@ -114,6 +114,7 @@ def uploadFile(fileName):
 
 
 def installApp(fileName):
+    print('here')
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Content-Type': 'application/json'
