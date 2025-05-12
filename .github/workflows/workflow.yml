@@ -29,10 +29,15 @@ jobs:
 
       
       - name: install appium tools
-        run: |
-            npm i -g appium
-            appium driver install xcuitest
-            appium
+        run: npm i -g appium
+
+        
+      - name: install xcuitest
+        run: appium driver install xcuitest
+
+
+      - name: run appium
+        run: appium
 
 
       - name: setup python
