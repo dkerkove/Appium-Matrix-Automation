@@ -87,8 +87,8 @@ jobs:
 
       - name: Create word list
         run: |
-          readonly wordlist_id=$(python -c 'from main import createWordList; createWordList()')
-          echo "The result is: $wordlist_id"
+          python -c 'from main import createWordList; createWordList()'
+          
 
 
       # - name: Create Matrix Assessment
