@@ -85,11 +85,16 @@ jobs:
       #     API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
       #   run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
 
-
-      - name: Create Matrix Assessment
+      - name: Create word list
         run: |
-          readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
-          echo "The result is: $assessment_id"
+          readonly wordlist_id=$(python -c 'from main import createWordList; createWordList()')
+          echo "The result is: $wordlist_id"
+
+
+      # - name: Create Matrix Assessment
+      #   run: |
+      #     readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
+      #     echo "The result is: $assessment_id"
 
       # - name: mount device
       #   run: pymobiledevice3 mounter auto-mount
