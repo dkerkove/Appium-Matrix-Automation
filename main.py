@@ -153,6 +153,7 @@ def createWordList():
     }
     
     r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/images", headers=headers, files = file)
+    print("wordlis", r)
     if r.status_code == 200:
         print('wordlist created')
         data = r.json()
