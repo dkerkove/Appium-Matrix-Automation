@@ -152,7 +152,7 @@ def createWordList():
         'file': open('sensitive_values.txt', 'rb')
     }
     
-    r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/images", headers=headers, files = file)
+    r = requests.post(f"{HOST_NAME}/api/v1/images", headers=headers, files = file)
     print("wordlis", r)
     if r.status_code == 200:
         print('wordlist created')
@@ -177,7 +177,7 @@ def createMatrixAssessment(bundle_id):
     if r.status_code == 200:
         data = r.json()
         print(f"Assessment created for ${bundle_id}")
-        return data['id']
+        print(data['id'])
 
 
 def starMatrixMonitoring(assessment_id):
