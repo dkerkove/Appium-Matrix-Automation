@@ -84,5 +84,5 @@ except Exception as e:
 
 
 finally:
-    driver.terminate_app('com.corellium.Cafe')
+    # driver.terminate_app('com.corellium.Cafe')
     driver.quit()
