@@ -222,4 +222,4 @@ def downlodMatrixReport():
     
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/download", headers=headers)
     if r.status_code == 200:
-
+        print(r)
