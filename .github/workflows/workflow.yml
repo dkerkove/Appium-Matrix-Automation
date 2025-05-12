@@ -107,6 +107,22 @@ jobs:
       # - name: test connection
       #   run: curl http://10.11.1.4
 
+      - name: Start Matrix monitoring
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import startMatrixMonitoring; startMatrixMonitoring("$assessment_id")'
 
+
+      - name: Stop Matrix monitoring
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import stopMatrixMonitoring; stopMatrixMonitoring("$assessment_id")'
+
+
+      - name: Execute Matrix test
+        env:
+          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+        run: python -c 'from main import executeMatrixTests; executeMatrixTests("$assessment_id")'
+      
       
 
