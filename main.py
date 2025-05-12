@@ -158,11 +158,10 @@ def createWordList():
     if r.status_code == 200:
         print('wordlist created')
         data = r.json()
-        return data['id']
+        print(data['id'])
 
 
-def createMatrixAssessment(bundle_id):
-    wordlist_id = createWordList()
+def createMatrixAssessment(bundle_id, wordlist_id):
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json',
