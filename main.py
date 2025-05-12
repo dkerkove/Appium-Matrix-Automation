@@ -2,7 +2,7 @@ import os
 import requests
 import json
 import time
-# import appium_cafe
+import appium_cafe
 
 
 try:
@@ -180,7 +180,7 @@ def createMatrixAssessment(bundle_id):
         print(data['id'])
 
 
-def starMatrixMonitoring(assessment_id):
+def startMatrixMonitoring(assessment_id):
     headers = {
         'Authorization': f"Bearer {API_KEY}"
     }
@@ -189,6 +189,7 @@ def starMatrixMonitoring(assessment_id):
     if r.status_code == 200:
         data = r.json()
         print(f"Monitoring started")
+        appium_cafe.automate_app()
         return data['id']
 
 
