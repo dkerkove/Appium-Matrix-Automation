@@ -60,30 +60,30 @@ jobs:
       #     pip install -U pymobiledevice3 && brew install libusb
 
 
-      - name: Download Cafe ipa
-        run: curl -L -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
+      # - name: Download Cafe ipa
+      #   run: curl -L -o Corellium_Cafe.ipa https://www.corellium.com/hubfs/Corellium_Cafe.ipa
 
 
-      - name: Install Cafe app on VM
-        env:
-          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import installApp; installApp("Corellium_Cafe.ipa")'
+      # - name: Install Cafe app on VM
+      #   env:
+      #     API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+      #   run: python -c 'from main import installApp; installApp("Corellium_Cafe.ipa")'
 
 
-      - name: Download Webdriver ipa
-        run: curl -L -o WebDriverAgentRunner-Runner.ipa https://www.corellium.com/hubfs/Blog%20Attachments/WebDriverAgentRunner-Runner.ipa
+      # - name: Download Webdriver ipa
+      #   run: curl -L -o WebDriverAgentRunner-Runner.ipa https://www.corellium.com/hubfs/Blog%20Attachments/WebDriverAgentRunner-Runner.ipa
 
 
-      - name: Install Webdriver app on VM
-        env:
-          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import installApp; installApp("WebDriverAgentRunner-Runner.ipa")'
+      # - name: Install Webdriver app on VM
+      #   env:
+      #     API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+      #   run: python -c 'from main import installApp; installApp("WebDriverAgentRunner-Runner.ipa")'
 
 
-      - name: Run Webdriver app on VM
-        env:
-          API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
+      # - name: Run Webdriver app on VM
+      #   env:
+      #     API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
+      #   run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
 
 
       - name: Create Matrix Assessment
