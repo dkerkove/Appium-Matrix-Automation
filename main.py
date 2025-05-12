@@ -166,7 +166,7 @@ def createMatrixAssessment(bundle_id):
         'Content-Type': 'application/json'
     }
     data = {
-        'instanceId': {INSTANCE_ID},
+        'instanceId': INSTANCE_ID,
         'bundleId': bundle_id,
         'wordlistId': wordlist_id
     }
