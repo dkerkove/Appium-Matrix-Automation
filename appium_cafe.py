@@ -8,13 +8,13 @@ options = XCUITestOptions()
 options.automation_name = 'XCUITest'
 
 # Unique to device
-options.udid = 'e685090c-931a-4bf5-9195-a2164cf66818' # UDID
-options.device_name = "generous-orchestration" # Name
+options.udid = '00008120-B14A00BB75CCBA77' # UDID
+options.device_name = "faithful-medieval" # Name
 options.platform_name = 'iOS'
-options.platform_version = '18.3.2' # iOS version
+options.platform_version = '18.3.1' # iOS version
 
 # WDA settings
-options.set_capability('webDriverAgentUrl', 'http://10.11.1.5:8100') # Services IP of Corellium device
+options.set_capability('webDriverAgentUrl', 'http://10.11.1.6:8100') # Services IP of Corellium device
 options.set_capability('usePreinstalledWDA', True)
 options.set_capability('updatedWDABundleId', 'org.appium.WebDriverAgentRunner')
 options.set_capability('updatedWDABundleIdSuffix', '.xctrunner')
