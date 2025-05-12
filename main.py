@@ -2,6 +2,7 @@ import os
 import requests
 import json
 import time
+import appium_cafe
 
 
 try:
@@ -185,7 +186,7 @@ def starMatrixMonitoring(assessment_id):
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers)
     if r.status_code == 200:
         data = r.json()
-        print(f"Assessment created for ${bundle_id}")
+        print(f"Monitoring started")
         return data['id']
 
 
@@ -197,7 +198,7 @@ def stopMatrixMonitoring(assessment_id):
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/stop", headers=headers)
     if r.status_code == 200:
         data = r.json()
-        print(f"Assessment created for ${bundle_id}")
+        print(f"Monitoring stopped")
         return data['id']
 
 
@@ -209,6 +210,15 @@ def executeMatrixTests(assessment_id):
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/stop", headers=headers)
     if r.status_code == 200:
         data = r.json()
-        print(f"Assessment created for ${bundle_id}")
+        print(f"Executing test")
         return data['id']
+
+
+def downlodMatrixReport():
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/download", headers=headers)
+    if r.status_code == 200:
 
