@@ -101,13 +101,11 @@ def uploadFile(fileName):
         'Authorization': f"Bearer {API_KEY}",
         "Content-Type": 'application/octet-stream'
     }
-
     filePath = f"/tmp/{fileName}"   
     
     with open(fileName, 'rb') as f:
         data = f.read()
 
-    
     r = requests.put(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data=data)
     if r.status_code == 204:
         # resp = requests.patch(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/file/device{filePath}", headers=headers, data={'mode':777})
@@ -138,3 +136,61 @@ def runApp(appName):
     if r.status_code == 200:
         data = r.json()
         print(f"{appName} started ...")
+
+
+def createWordList():
+    headers = {
+        'Authorization': f"Bearer {API_KEY}",
+        'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data'
+    }
+    file = {
+        'type': (None, 'mast-wordlist'),
+        'encoding': (None, 'plain'),
+        'instance': (None, {INSTANCE_ID}),
+        'file': open('sensitive_values.txt', 'rb')
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/instances/{INSTANCE_ID}/agent/v1/images", headers=headers, files = file)
+    if r.status_code == 200:
+        data = r.json()
+        return data['id']
+
+
+def createMatrixAssessment(bundle_id):
+    wordlist_id = createWordList()
+    headers = {
+        'Authorization': f"Bearer {API_KEY}",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'instanceId': {INSTANCE_ID},
+        'bundleId': bundle_id,
+        'wordlistId': wordlist_id
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments", headers=headers, json = data)
+    if r.status_code == 200:
+        data = r.json()
+        print(f"Assessment created for ${bundle_id}")
+        return data['id']
+
+
+def starMatrixMonitoring(assessment_id):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'instanceId': {INSTANCE_ID},
+        'bundleId': bundle_id,
+        'wordlistId': wordlist_id
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers, json = data)
+    if r.status_code == 200:
+        data = r.json()
+        print(f"Assessment created for ${bundle_id}")
+        return data['id']
