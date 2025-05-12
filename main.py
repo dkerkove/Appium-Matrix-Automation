@@ -142,8 +142,7 @@ def runApp(appName):
 def createWordList():
     headers = {
         'Authorization': f"Bearer {API_KEY}",
-        'Accept': 'application/json',
-        'Content-Type': 'multipart/form-data'
+        'Accept': 'application/json'
     }
     file = {
         'type': (None, 'mast-wordlist'),
@@ -158,10 +157,10 @@ def createWordList():
     if r.status_code == 200:
         print('wordlist created')
         data = r.json()
-        print(data['id'])
 
 
-def createMatrixAssessment(bundle_id, wordlist_id):
+def createMatrixAssessment(bundle_id):
+    createWordList()
     headers = {
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json',
