@@ -2,7 +2,7 @@ import os
 import requests
 import json
 import time
-import appium_cafe
+# import appium_cafe
 
 
 try:
