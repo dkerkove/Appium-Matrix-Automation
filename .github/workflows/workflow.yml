@@ -22,30 +22,17 @@ jobs:
       # check state of phone
       # install webdriver app
       # install cafe app
-
-
-
-      # - name: install python tools
-      #   run: |
-      #     pip install -U pymobiledevice3 && brew install libusb
-      #     pymobiledevice3 mounter auto-mount
         
-
 
       # check status
       #   curl http://10.11.1.1:8100/status
 
       
-      # install appium
-      #   npm i -g appium
-      #   appium driver install xcuitest
-      # start appium
-      #   appium
-
-
-      # start matrix monitor
-      # wait
-      # start appium python script
+      - name: install appium tools
+        run: |
+            npm i -g appium
+            appium driver install xcuitest
+            appium
 
 
       - name: setup python
@@ -54,10 +41,15 @@ jobs:
           python-version: '3.9' # install the python version needed
 
 
-      - name: install python packages
+      - name: install python tools
         run: |
           pip install -r requirements.txt
-      #     pip install -U pymobiledevice3 && brew install libusb
+          pip install -U pymobiledevice3 && brew install libusb
+          pymobiledevice3 mounter auto-mount
+
+
+      - name: mount device
+        run: pymobiledevice3 mounter auto-mount
 
 
       - name: open and foward port 8100
@@ -98,10 +90,6 @@ jobs:
         run: |
           readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
           echo "The result is: $assessment_id"
-
-
-      - name: mount device
-        run: pymobiledevice3 mounter auto-mount
 
 
       # - name: test connection
