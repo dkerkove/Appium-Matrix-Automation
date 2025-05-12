@@ -140,7 +140,7 @@ def runApp(appName):
 
 
 def createWordList():
-    eaders = {
+    headers = {
         'Authorization': f"Bearer {API_KEY}"
     }
     file = {
