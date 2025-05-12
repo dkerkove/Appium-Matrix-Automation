@@ -179,18 +179,36 @@ def createMatrixAssessment(bundle_id):
 
 def starMatrixMonitoring(assessment_id):
     headers = {
-        'Authorization': f"Bearer {API_KEY}",
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-    data = {
-        'instanceId': {INSTANCE_ID},
-        'bundleId': bundle_id,
-        'wordlistId': wordlist_id
+        'Authorization': f"Bearer {API_KEY}"
     }
     
-    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers, json = data)
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers)
     if r.status_code == 200:
         data = r.json()
         print(f"Assessment created for ${bundle_id}")
         return data['id']
+
+
+def stopMatrixMonitoring(assessment_id):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/stop", headers=headers)
+    if r.status_code == 200:
+        data = r.json()
+        print(f"Assessment created for ${bundle_id}")
+        return data['id']
+
+
+def executeMatrixTests(assessment_id):
+    headers = {
+        'Authorization': f"Bearer {API_KEY}"
+    }
+    
+    r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/stop", headers=headers)
+    if r.status_code == 200:
+        data = r.json()
+        print(f"Assessment created for ${bundle_id}")
+        return data['id']
+
