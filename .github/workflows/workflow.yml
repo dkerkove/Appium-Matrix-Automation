@@ -73,6 +73,7 @@ jobs:
       - name: Download Webdriver ipa
         run: curl -L -o WebDriverAgentRunner-Runner.ipa https://www.corellium.com/hubfs/Blog%20Attachments/WebDriverAgentRunner-Runner.ipa
 
+
       - name: Install Webdriver app on VM
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
