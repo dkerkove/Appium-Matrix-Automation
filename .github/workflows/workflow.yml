@@ -86,9 +86,15 @@ jobs:
         run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
 
 
+      - name: Create Matrix Wordlist
+        run: |
+          readonly wordlist_id=$(python -c 'from main import createWordList; createWordList()')
+          echo "The result is: $wordlist_id"
+
+
       - name: Create Matrix Assessment
         run: |
-          readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
+          readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe", "$wordlist_id")')
           echo "The result is: $assessment_id"
 
       # - name: mount device
