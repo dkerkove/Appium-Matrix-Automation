@@ -90,9 +90,6 @@ jobs:
         run: |
           assessment_id = $(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe"))
           echo "The result is: $assessment_id"
-        
-
-
 
       # - name: mount device
       #   run: pymobiledevice3 mounter auto-mount
