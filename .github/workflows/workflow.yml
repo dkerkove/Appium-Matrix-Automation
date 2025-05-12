@@ -85,6 +85,11 @@ jobs:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
         run: python -c 'from main import runApp; runApp("org.appium.WebDriverAgentRunner.xctrunner")'
 
+
+      - name: Create Matrix Assessment
+        run: |
+          assessment_id = $(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe"))
+          echo "The result is: $assessment_id"
         
 
 
