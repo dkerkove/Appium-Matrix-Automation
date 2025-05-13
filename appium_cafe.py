@@ -27,6 +27,7 @@ def automate_app():
     
     try:
         driver = webdriver.Remote('http://127.0.0.1:4723', options=options)
+        driver = webdriver.Remote(command_executor="https://ba1c-24-118-162-47.ngrok-free.app", options=options)
         print("Connected to Cafe app")
     
         wait = WebDriverWait(driver, 20)
