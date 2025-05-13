@@ -98,7 +98,10 @@ jobs:
           echo "assessment_id=$assessment_id" >> $GITHUB_OUTPUT
           echo "GITHUB_OUTPUT=$GITHUB_OUTPUT"
           ls -l "$GITHUB_OUTPUT"
-          
+
+
+      - name: echo assessment id
+        run: echo "${{ steps.create_test.outputs.assessment_id }}"
 
 
       # - name: test connection
