@@ -183,7 +183,7 @@ def startMatrixMonitoring(assessment_id):
     if r.status_code == 204:
         time.sleep(10)
         print(f"Monitoring started")
-        appium_cafe.automate_app()
+        # appium_cafe.automate_app()
 
 
 
