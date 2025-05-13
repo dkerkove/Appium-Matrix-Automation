@@ -154,7 +154,6 @@ def createWordList():
     }
     r = requests.post(f"{HOST_NAME}/api/v1/images", headers=headers, files=file)
     if r.status_code == 200:
-        print('wordlist created')
         data = r.json()
         return data['id']
 
