@@ -19,14 +19,6 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4
 
-      # check state of phone
-      # install webdriver app
-      # install cafe app
-        
-
-      # check status
-      #   curl http://10.11.1.1:8100/status
-
       
       - name: install appium tools
         run: npm i -g appium
