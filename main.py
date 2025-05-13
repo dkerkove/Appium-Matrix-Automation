@@ -118,7 +118,6 @@ def installApp(fileName):
         'Authorization': f"Bearer {API_KEY}",
         'Content-Type': 'application/json'
     }
-    print(headers)
     path = uploadFile(fileName)
     # time.sleep(10)
     data = {
@@ -145,7 +144,6 @@ def createWordList():
         'Authorization': f"Bearer {API_KEY}",
         'Accept': 'application/json'
     }
-    print(headers)
     file = {
         'type': (None, 'mast-wordlist'),
         'encoding': (None, 'plain'),
