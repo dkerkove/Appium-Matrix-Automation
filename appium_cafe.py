@@ -13,7 +13,7 @@ def automate_app():
     # options.udid = '00008120B14A00BB75CCBA77' # UDID
     options.device_name = "faithful-medieval" # Name
     options.platform_name = 'iOS'
-    # options.platform_version = '18.3.1' # iOS version
+    options.platform_version = '18.3.1' # iOS version
     
     # WDA settings
     # options.set_capability('webDriverAgentUrl', 'http://10.11.1.6:8100') # Services IP of Corellium device
