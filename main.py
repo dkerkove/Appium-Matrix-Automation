@@ -181,6 +181,7 @@ def startMatrixMonitoring(assessment_id):
     
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers)
     if r.status_code == 204:
+        time.sleep(10)
         print(f"Monitoring started")
         appium_cafe.automate_app()
 
