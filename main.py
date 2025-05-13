@@ -170,7 +170,7 @@ def createMatrixAssessment(bundle_id):
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments", headers=headers, json = data)
     if r.status_code == 200:
         data = r.json()
-        print(data['id']
+        print(data['id'])
         return data['id']
 
 
