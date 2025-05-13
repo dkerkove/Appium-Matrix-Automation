@@ -90,11 +90,13 @@ jobs:
 
 
       - name: Create Matrix Assessment
+        id: create_test
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
         run: |
           readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
-          echo "The result is: $assessment_id"
+          "assessment_id=$assessment_id" >> $GITHUB_OUTPUT
+          "The assessment id is ${{ steps.create_test.outputs.assessment_id }}"
 
 
       # - name: test connection
@@ -103,19 +105,19 @@ jobs:
       - name: Start Matrix monitoring
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import startMatrixMonitoring; startMatrixMonitoring("$assessment_id")'
+        run: python -c 'from main import startMatrixMonitoring; startMatrixMonitoring("${{ steps.create_test.outputs.assessment_id }}")'
 
 
       - name: Stop Matrix monitoring
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import stopMatrixMonitoring; stopMatrixMonitoring("$assessment_id")'
+        run: python -c 'from main import stopMatrixMonitoring; stopMatrixMonitoring("${{ steps.create_test.outputs.assessment_id }}")'
 
 
       - name: Execute Matrix test
         env:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
-        run: python -c 'from main import executeMatrixTests; executeMatrixTests("$assessment_id")'
+        run: python -c 'from main import executeMatrixTests; executeMatrixTests("${{ steps.create_test.outputs.assessment_id }}")'
       
       
 
