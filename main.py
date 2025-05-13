@@ -172,11 +172,9 @@ def createMatrixAssessment(bundle_id):
         'bundleId': bundle_id,
         'wordlistId': wordlist_id
     }
-    print(data)
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments", headers=headers, json = data)
     if r.status_code == 200:
         data = r.json()
-        print(f"Assessment created for ${bundle_id}")
         print(data['id'])
 
 
