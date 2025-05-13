@@ -11,7 +11,7 @@ def automate_app():
     
     # Unique to device
     # options.udid = '00008120B14A00BB75CCBA77' # UDID
-    # options.device_name = "faithful-medieval" # Name
+    options.device_name = "faithful-medieval" # Name
     options.platform_name = 'iOS'
     # options.platform_version = '18.3.1' # iOS version
     
