@@ -20,16 +20,16 @@ jobs:
         uses: actions/checkout@v4
 
       
-      - name: install appium tools
-        run: npm i -g appium
+      # - name: install appium tools
+      #   run: npm i -g appium
 
         
-      - name: install xcuitest
-        run: appium driver install xcuitest
+      # - name: install xcuitest
+      #   run: appium driver install xcuitest
 
 
-      - name: run appium
-        run: appium&
+      # - name: run appium
+      #   run: appium&
 
 
       - name: setup python
