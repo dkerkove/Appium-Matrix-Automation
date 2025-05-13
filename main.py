@@ -186,6 +186,7 @@ def startMatrixMonitoring(assessment_id):
     }
     
     r = requests.post(f"{HOST_NAME}/api/v1/services/matrix/{INSTANCE_ID}/assessments/{assessment_id}/start", headers=headers)
+    print(r)
     if r.status_code == 200:
         data = r.json()
         print(f"Monitoring started")
