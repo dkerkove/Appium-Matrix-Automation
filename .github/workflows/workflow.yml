@@ -95,8 +95,8 @@ jobs:
           API_KEY: ${{ secrets.CORELLIUM_TOKEN }}
         run: |
           readonly assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
-          "assessment_id=$assessment_id" >> $GITHUB_OUTPUT
-          "The assessment id is ${{ steps.create_test.outputs.assessment_id }}"
+          echo "assessment_id=$assessment_id" >> $GITHUB_OUTPUT
+          
 
 
       # - name: test connection
