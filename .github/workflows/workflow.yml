@@ -96,8 +96,6 @@ jobs:
         run: |
           assessment_id=$(python -c 'from main import createMatrixAssessment; createMatrixAssessment("com.corellium.Cafe")')
           echo "assessment_id=$assessment_id" >> $GITHUB_OUTPUT
-          echo "GITHUB_OUTPUT=$GITHUB_OUTPUT"
-          ls -l "$GITHUB_OUTPUT"
 
 
       - name: echo assessment id
